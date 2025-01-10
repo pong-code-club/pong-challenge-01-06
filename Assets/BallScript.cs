@@ -1,7 +1,8 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallScript : MonoBehaviour
-{
+{ 
     //Declaring primitive data types
     //[public or private keyword] [data type] [identifier]
     //Declaring primitive data types
@@ -35,6 +36,41 @@ public class BallScript : MonoBehaviour
     {
         //run the code inside here { }
         //Debug.Log("Inside Update Function");
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Debug.Log("Ball Hit Something");
+        //check to see if I hit a game object named "Lava"
+        if (collision.gameObject.name == "Lava")
+        {
+            Debug.Log("Hit Lava");
+            SceneManager.LoadScene("DemoDay4");
+        }
+
+        //check to see if I hit a game object with a tag of "WALL"
+        if (collision.gameObject.tag == "WALL")
+        {
+            Debug.Log("Hit a Wall");
+            GameObject.Find("ScoreUI").GetComponent<ScoreScript>().AddToScore();
+        }
+
+        /*
+        if (collision.gameObject.name == "TopWall")
+        {
+            Debug.Log("Hit TopWall");
+        }
+        if (collision.gameObject.name == "LeftWall")
+        {
+            Debug.Log("Hit LeftWall");
+        }
+        if (collision.gameObject.name == "RightWall")
+        {
+            Debug.Log("Hit RightWall");
+        }
+        */
+
+
     }
 
     //function declaration

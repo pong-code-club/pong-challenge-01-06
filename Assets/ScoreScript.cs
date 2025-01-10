@@ -23,6 +23,19 @@ public class ScoreScript : MonoBehaviour
     {
         //This is the same as doing MyScoreValue += 1
         //MyScoreValue = MyScoreValue + 1;
+
+        /*
+        MyScoreValue += 1;
+        MyScoreUI.text = "Score: " + MyScoreValue;
+        */
+        //Calling a function
+        //AddToScore();
+    }
+
+    //Declaring a function
+    //[public or private keyword] [return data type] [Function Identifier] [( -put in your parameters- )]
+    public void AddToScore()
+    {
         MyScoreValue += 1;
         MyScoreUI.text = "Score: " + MyScoreValue;
     }
